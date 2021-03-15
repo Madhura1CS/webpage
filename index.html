@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head><title>index</title>
+ <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="C:/Users/Madhura.S/Desktop/ui/in.css">
+</head>
+
+<body><div class="bgimg-1"><p style="colour:white; text-align:center;font-size:25px">Geolocating</p>
+<div class="transbox">
+
+ <h3><p><b>results</b></p></h3>
+ <div>
+ <script>
+            function getParams(){
+                var idx = document.URL.indexOf('?');
+				console.log(idx);
+                var params = new Array();
+                if (idx != -1) {
+                    var pairs = document.URL.substring(idx+1, document.URL.length).split('&');
+                    for (var i=0; i<pairs.length; i++){
+                        nameVal = pairs[i].split('=');
+                        params[nameVal[0]] = nameVal[1];
+                    }
+                }
+                return params;
+            }
+            params = getParams();
+            adressl1 = unescape(params["adressl1"]);
+			adressl2 = unescape(params["adressl2"]);
+
+            city = unescape(params["city"]);
+            state = unescape(params["state"]);
+			country = unescape(params["country"]);
+
+			//postalcode=  unescape(params["postalcode"]);
+			document.write("addressline 1 = " + adressl1.replace("+"," ") + "<br>");
+		    document.write("addressline 2 = " + adressl2.replace("+"," ") + "<br>");
+
+            document.write("city = " + city.replace("+", " ") + "<br>");
+            document.write("state = " + state.replace("+"," ") + "<br>");
+            document.write("country = " + country.replace("+"," ") + "<br>");
+
+			//document.write("postalcode = " + postalcode + "<br>");
+			document.write("latitude = "  +"<br>");
+			document.write("longitude = " +"<br>" );
+ </script>
+ </div>
+ </div>
+ </div>
+</body>
+</html>
